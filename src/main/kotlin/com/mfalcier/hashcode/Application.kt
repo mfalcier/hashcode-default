@@ -54,7 +54,6 @@ fun convertResultIntoText(matrix: MutableList<MutableList<String>>, path: String
     for (row in matrix) {
         var stringRow = ""
         for (element in row) {
-            //output.appendText("$element ")
             stringRow += "$element "
         }
         output.appendText("$stringRow\n")
