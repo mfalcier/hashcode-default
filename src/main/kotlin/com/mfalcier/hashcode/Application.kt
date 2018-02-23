@@ -13,7 +13,6 @@ fun main(args : Array<String>) {
     print("Converting file into The Matrix... ")
     val matrix = executeCommand { convertFileIntoMatrix(args[0], args[1]) }
 
-
     print("Elaborating The Matrix... ")
     val elaboratedMatrix = executeCommand { elaborateMatrix(matrix) }
 
