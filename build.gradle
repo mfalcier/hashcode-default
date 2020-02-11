@@ -1,0 +1,53 @@
+group = 'com.mfalcier'
+version = '1.0.0'
+description = 'A kotlin default app for Google Hashcode'
+sourceCompatibility = '1.8'
+
+apply plugin: 'java'
+apply plugin: 'kotlin'
+apply plugin: 'application'
+
+buildscript {
+    ext.kotlin_version = '1.3.61'
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    testImplementation("junit:junit:4.12")
+}
+
+sourceSets {
+    main.kotlin.srcDirs += 'src/main/kotlin'
+    main.java.srcDirs += 'src/main/java'
+}
+
+mainClassName = 'com.mfalcier.hashcode.ApplicationKt'
+
+task main(type: JavaExec) {
+    classpath sourceSets.main.runtimeClasspath
+    main = "com.mfalcier.hashcode.ApplicationKt"
+    args = ["/Users/marco.falcier/sources/hashcode-default/", "big.in"]
+}
+
+task zipSource(type: Zip) {
+    from (project.rootDir){
+        exclude '*/*.iml'
+        exclude 'build'
+    }
+    destinationDir project.buildDir
+}
