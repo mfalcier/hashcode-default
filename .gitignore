@@ -15,8 +15,8 @@ hs_err_pid*
 .idea
 *.iml
 
-# Maven #
-target
+# Gradle #
+.gradle
 
 # MAC Journaling #
 /.DS_Store
