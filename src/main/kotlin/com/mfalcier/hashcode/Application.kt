@@ -16,6 +16,9 @@ fun main(args : Array<String>) {
     print("Elaborating The Matrix... ")
     val elaboratedMatrix = executeCommand { elaborateMatrix(matrix) }
 
+    print("Testing Memoization... ")
+    executeCommand { runMemoizationTest() }
+
     print("Writing The Matrix... ")
     executeCommand { convertResultIntoText(elaboratedMatrix, args[0], args[1].split(".")[0]) }
 
@@ -57,5 +60,19 @@ fun convertResultIntoText(matrix: MutableList<MutableList<String>>, path: String
             stringRow += "$element "
         }
         output.appendText("$stringRow\n")
+    }
+}
+
+fun returnIt(number: Int): Int {
+    print("$number ")
+    return number
+}
+
+val memoizedReturnIt = { x: Int -> returnIt(x) }.memoize()
+
+fun runMemoizationTest() {
+    val list = listOf(1, 1, 2, 3, 3, 4, 2)
+    list.forEach {
+        memoizedReturnIt(it)
     }
 }
