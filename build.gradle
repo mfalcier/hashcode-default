@@ -18,10 +18,12 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url 'https://jitpack.io' }
     }
 }
 
 dependencies {
+    implementation 'com.github.mfalcier:kotlin-memoize:1.0.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     testImplementation("junit:junit:4.12")
 }

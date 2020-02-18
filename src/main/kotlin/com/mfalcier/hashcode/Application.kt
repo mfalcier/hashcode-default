@@ -1,5 +1,6 @@
 package com.mfalcier.hashcode
 
+import com.mfalcier.memoize.memoize
 import java.io.File
 import java.io.InputStream
 
